@@ -1,0 +1,33 @@
+---
+- name: Download and extract SyncThing {{ version }}
+  unarchive:
+    src: https://github.com/syncthing/syncthing/releases/download/{{ version }}/syncthing-{{ os }}-amd64-{{ version }}.tar.gz
+    dest: "{{ download_dir }}"
+    remote_src: True
+
+- name: Copy into ~/bin
+  copy:
+    src: "{{ download_dir }}/syncthing-{{ os }}-amd64-{{ version }}/syncthing"
+    dest: ~/bin/syncthing
+    remote_src: True
+
+- name: Copy systemd user service
+  copy:
+    src: "{{ download_dir }}/syncthing-{{ os }}-amd64-{{ version }}/etc/linux-systemd/user/syncthing.service"
+    dest: ~/.config/systemd/user/syncthing.service
+    remote_src: True
+
+- name: Change systemd user service to point to ~/bin
+  ini_file:
+    path: ~/.config/systemd/user/syncthing.service
+    section: Service
+    option: ExecStart
+    value: /home/{{ ansible_user }}/bin/syncthing -no-browser -no-restart -logflags=0
+
+- name: Start systemd service
+  systemd:
+    user: yes
+    name: syncthing
+    daemon_reload: yes
+    enabled: yes
+    state: started

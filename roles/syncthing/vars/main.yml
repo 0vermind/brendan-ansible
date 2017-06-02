@@ -1,0 +1,6 @@
+---
+# Ideally we'd figure this out using the github_release module, but I can't
+# get the github3 pip module to install
+version: v0.14.29
+os: "{{ 'linux' if ansible_os_family == 'RedHat' or ansible_os_family == 'Debian' else 'macosx' }}"
+download_dir: /tmp
