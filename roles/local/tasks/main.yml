@@ -1,4 +1,10 @@
 ---
+- name: Setup Messenger For Desktop repo
+  get_url:
+    url: https://bintray.com/aluxian/rpm/rpm
+    dest: /etc/yum.repos.d/bintray-aluxian-rpm.repo
+  become: true
+
 - name: Install libraries and things
   package:
     name: "{{ item }}"
@@ -16,7 +22,9 @@
   with_items:
     - atom
     - firefox
+    - messengerfordesktop
     - thunderbird
+    - yakyak
   become: true
 
 - name: Fix antialiasing
