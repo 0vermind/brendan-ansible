@@ -1,0 +1,20 @@
+---
+- name: Install libraries and things
+  package:
+    name: "{{ item }}"
+  with_items:
+    - freetype-freeworld
+    - gstreamer-ffmpeg
+    - gstreamer-plugins-bad
+    - gstreamer-plugins-ugly
+    - xine-lib-extras-freeworld
+  become: true
+
+- name: Install programs
+  package:
+    name: "{{ item }}"
+  with_items:
+    - atom
+    - firefox
+    - thunderbird
+  become: true

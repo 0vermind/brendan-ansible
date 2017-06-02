@@ -2,6 +2,7 @@
 - package:
     name: "{{ item }}"
   with_items:
+    - "@Development tools"
     - autoconf
     - automake
     - cmake

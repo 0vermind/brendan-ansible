@@ -3,3 +3,4 @@
   roles:
     - common
     - command_line_tools
+    - local
