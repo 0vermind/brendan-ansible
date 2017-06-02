@@ -1,8 +1,16 @@
 ---
-- name: Setup Messenger For Desktop repo
+- name: Setup extra repos
   get_url:
-    url: https://bintray.com/aluxian/rpm/rpm
-    dest: /etc/yum.repos.d/bintray-aluxian-rpm.repo
+    url: "{{ item.src }}"
+    dest: "/etc/yum.repos.d/{{ item.dest }}"
+  with_items:
+    - src: https://negativo17.org/repos/fedora-flash-plugin.repo
+      dest: fedora-flash-plugin.repo
+    - src: https://negativo17.org/repos/fedora-steam.repo
+      dest: fedora-steam.repo
+    - src: https://bintray.com/aluxian/rpm/rpm
+      dest: bintray-aluxian-rpm.repo
+      note: Messenger for Desktop
   become: true
 
 - name: Install libraries and things
@@ -22,7 +30,9 @@
   with_items:
     - atom
     - firefox
+    - flash-plugin
     - messengerfordesktop
+    - steam
     - thunderbird
     - yakyak
   become: true
