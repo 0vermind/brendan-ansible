@@ -2,4 +2,4 @@
 - hosts: local
   roles:
     - common
-    - dev
+    - command_line_tools

@@ -1,0 +1,13 @@
+---
+- package:
+    name: "{{ item }}"
+  with_items:
+    - autoconf
+    - automake
+    - cmake
+    - git
+    - libtool
+    - ninja-build
+    - scons
+    - valgrind
+  become: true
