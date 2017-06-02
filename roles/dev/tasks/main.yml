@@ -1,5 +1,1 @@
 ---
-- known_hosts:
-    hash_host: yes
-    name: brendanlong.com
-    key: "{{ lookup('file', 'files/known_hosts/brendanlong.com') }}"

@@ -1,6 +1,7 @@
 ---
 - package:
     name: nano
+  become: true
 
 - user:
     name: blong
@@ -8,3 +9,9 @@
     generate_ssh_key: yes
     groups: wheel
     ssh_key_bits: 2048
+  become: true
+
+- known_hosts:
+    hash_host: yes
+    name: brendanlong.com
+    key: "{{ lookup('file', 'files/known_hosts/brendanlong.com') }}"
