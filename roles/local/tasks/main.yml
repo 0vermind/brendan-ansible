@@ -18,3 +18,16 @@
     - firefox
     - thunderbird
   become: true
+
+- name: Fix antialiasing
+  gsetting:
+    schema: "{{ item.schema }}"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+    - schema: org.gnome.settings-daemon.plugins.xsettings
+      key: hinting
+      value: "'slight'"
+    - schema: org.gnome.settings-daemon.plugins.xsettings
+      key: antialiasing
+      value: "'rgba'"
