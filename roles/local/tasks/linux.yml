@@ -1,14 +1,9 @@
 ---
-- name: Install libraries and things
-  package:
-    name: "{{ item }}"
-  with_items:
-    - freetype-freeworld
-    - gstreamer-ffmpeg
-    - gstreamer-plugins-bad
-    - gstreamer-plugins-ugly
-    - xine-lib-extras-freeworld
-  become: true
+- include: fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- include: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
 
 - name: Fix antialiasing
   gsetting:
@@ -25,7 +20,7 @@
 
 - name: Fix PulseAudio flat volumes
   ini_file:
-    path: /etc/pulse/daemon.conf
+    dest: /etc/pulse/daemon.conf
     create: no
     section: null
     option: flat-volumes

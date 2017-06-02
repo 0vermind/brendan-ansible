@@ -1,1 +1,16 @@
 ---
+- name: Install Fedora-specific libraries and programs
+  package:
+    name: "{{ item }}"
+  with_items:
+    - freetype-freeworld
+    - gstreamer-ffmpeg
+    - gstreamer-plugins-bad
+    - gstreamer-plugins-ugly
+    - flashplugin
+    - messengerfordesktop
+    - steam
+    - thunderbird
+    - xine-lib-extras-freeworld
+    - yakyak
+  become: true

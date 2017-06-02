@@ -1,0 +1,7 @@
+---
+- name: "Add extra apt repos"
+  apt_repository:
+    repo: "{{ item }}"
+  with_items:
+    - ppa:webupd8team/atom
+  become: true

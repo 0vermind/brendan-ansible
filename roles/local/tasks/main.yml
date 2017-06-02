@@ -1,23 +1,14 @@
 ---
-- include: fedora.yml
-  when: ansible_distribution == "Fedora"
-
 - include: linux.yml
   when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
 
 - name: Install programs
-  package:
-    name: "{{ item }}"
+  package: name={{ item }}
   with_items:
     - atom
     - firefox
-    - flash-plugin
     - lastpass-cli
-    - messengerfordesktop
-    - python2-flake8
-    - steam
-    - thunderbird
-    - yakyak
+    - "{{ 'python2-flake8' if ansible_os_family == 'RedHat' else 'flake8' }}"
   become: true
 
 - name: Install Atom packages

@@ -3,14 +3,12 @@
   package:
     name: "{{ item }}"
   with_items:
-    - "@Development tools"
     - autoconf
     - automake
     - cmake
     - git
     - libtool
     - nano
-    - ninja-build
     - scons
     - valgrind
   become: true
