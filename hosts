@@ -1,0 +1,9 @@
+[local]
+localhost ansible_connection=local
+
+[mail]
+brendanlong.com
+
+[sync]
+brendanlong.com
+localhost
