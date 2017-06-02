@@ -1,3 +1,10 @@
 ---
 - package:
     name: nano
+
+- user:
+    name: blong
+    append: yes
+    generate_ssh_key: yes
+    groups: wheel
+    ssh_key_bits: 2048
