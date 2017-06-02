@@ -1,0 +1,6 @@
+---
+- name: restart pulseaudio
+  command: "{{ item }}"
+  with_items:
+    - pulseaudio -k
+    - pulseaudio --start

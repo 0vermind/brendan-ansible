@@ -49,3 +49,14 @@
     - schema: org.gnome.settings-daemon.plugins.xsettings
       key: antialiasing
       value: "'rgba'"
+
+- name: Fix PulseAudio flat volumes
+  ini_file:
+    path: /etc/pulse/daemon.conf
+    create: no
+    section: null
+    option: flat-volumes
+    value: 'no'
+  become: true
+  notify:
+    - restart pulseaudio
