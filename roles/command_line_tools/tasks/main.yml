@@ -1,5 +1,6 @@
 ---
-- package:
+- name: Install command-line tools
+  package:
     name: "{{ item }}"
   with_items:
     - "@Development tools"
@@ -8,6 +9,7 @@
     - cmake
     - git
     - libtool
+    - nano
     - ninja-build
     - scons
     - valgrind
