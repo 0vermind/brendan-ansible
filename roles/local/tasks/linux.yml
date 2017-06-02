@@ -1,0 +1,35 @@
+---
+- name: Install libraries and things
+  package:
+    name: "{{ item }}"
+  with_items:
+    - freetype-freeworld
+    - gstreamer-ffmpeg
+    - gstreamer-plugins-bad
+    - gstreamer-plugins-ugly
+    - xine-lib-extras-freeworld
+  become: true
+
+- name: Fix antialiasing
+  gsetting:
+    schema: "{{ item.schema }}"
+    key: "{{ item.key }}"
+    value: "{{ item.value }}"
+  with_items:
+    - schema: org.gnome.settings-daemon.plugins.xsettings
+      key: hinting
+      value: "'slight'"
+    - schema: org.gnome.settings-daemon.plugins.xsettings
+      key: antialiasing
+      value: "'rgba'"
+
+- name: Fix PulseAudio flat volumes
+  ini_file:
+    path: /etc/pulse/daemon.conf
+    create: no
+    section: null
+    option: flat-volumes
+    value: 'no'
+  become: true
+  notify:
+  - restart pulseaudio

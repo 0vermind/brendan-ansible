@@ -1,28 +1,9 @@
 ---
-- name: Setup extra repos
-  get_url:
-    url: "{{ item.src }}"
-    dest: "/etc/yum.repos.d/{{ item.dest }}"
-  with_items:
-    - src: https://negativo17.org/repos/fedora-flash-plugin.repo
-      dest: fedora-flash-plugin.repo
-    - src: https://negativo17.org/repos/fedora-steam.repo
-      dest: fedora-steam.repo
-    - src: https://bintray.com/aluxian/rpm/rpm
-      dest: bintray-aluxian-rpm.repo
-      note: Messenger for Desktop
-  become: true
+- include: fedora.yml
+  when: ansible_distribution == "Fedora"
 
-- name: Install libraries and things
-  package:
-    name: "{{ item }}"
-  with_items:
-    - freetype-freeworld
-    - gstreamer-ffmpeg
-    - gstreamer-plugins-bad
-    - gstreamer-plugins-ugly
-    - xine-lib-extras-freeworld
-  become: true
+- include: linux.yml
+  when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
 
 - name: Install programs
   package:
@@ -36,27 +17,3 @@
     - thunderbird
     - yakyak
   become: true
-
-- name: Fix antialiasing
-  gsetting:
-    schema: "{{ item.schema }}"
-    key: "{{ item.key }}"
-    value: "{{ item.value }}"
-  with_items:
-    - schema: org.gnome.settings-daemon.plugins.xsettings
-      key: hinting
-      value: "'slight'"
-    - schema: org.gnome.settings-daemon.plugins.xsettings
-      key: antialiasing
-      value: "'rgba'"
-
-- name: Fix PulseAudio flat volumes
-  ini_file:
-    path: /etc/pulse/daemon.conf
-    create: no
-    section: null
-    option: flat-volumes
-    value: 'no'
-  become: true
-  notify:
-    - restart pulseaudio

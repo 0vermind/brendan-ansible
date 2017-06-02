@@ -1,0 +1,21 @@
+---
+- name: Install the RPM Fusion repos
+  dnf: name={{ item }}
+  with_items:
+    - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    - http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ ansible_distribution_version }}.noarch.rpm
+  become: true
+
+- name: Setup extra repos
+  get_url:
+    url: "{{ item.src }}"
+    dest: "/etc/yum.repos.d/{{ item.dest }}"
+  with_items:
+    - src: https://negativo17.org/repos/fedora-flash-plugin.repo
+      dest: fedora-flash-plugin.repo
+    - src: https://negativo17.org/repos/fedora-steam.repo
+      dest: fedora-steam.repo
+    - src: https://bintray.com/aluxian/rpm/rpm
+      dest: bintray-aluxian-rpm.repo
+      note: Messenger for Desktop
+  become: true
