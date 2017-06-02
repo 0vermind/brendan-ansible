@@ -1,13 +1,13 @@
 ---
 - name: Install Fedora-specific libraries and programs
-  package:
+  dnf:
     name: "{{ item }}"
   with_items:
     - freetype-freeworld
     - gstreamer-ffmpeg
     - gstreamer-plugins-bad
     - gstreamer-plugins-ugly
-    - flashplugin
+    - flash-plugin
     - messengerfordesktop
     - steam
     - thunderbird

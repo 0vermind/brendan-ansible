@@ -1,7 +1,30 @@
 ---
-- name: "Add extra apt repos"
+- name: Add extra apt repos
   apt_repository:
     repo: "{{ item }}"
   with_items:
     - ppa:webupd8team/atom
+  become: true
+
+- name: Update all packages
+  apt:
+    upgrade: dist
+    update_cache: yes
+  become: true
+
+- name: Install Ubuntu-specific packages
+  apt: name={{ item }}
+  with_items:
+    - gdm3
+    - gnome-shell
+    - virtualbox-guest-x11
+  become: true
+
+- name: Remove Ubuntu garbage
+  apt: name={{ item }} state=absent autoremove=true
+  with_items:
+    - liboverlay-scrollbar
+    #- lightdm
+    - overlay-scrollbar
+    #- unity
   become: true

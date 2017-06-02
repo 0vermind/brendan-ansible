@@ -19,6 +19,7 @@
     - language-r
     - language-rust
     - language-vala-modern
+    - linter
     - linter-flake8
     - linter-lintr
     - linter-rust
