@@ -1,0 +1,26 @@
+---
+- name: Install Mac specific programs
+  homebrew_cask: name={{ item }}
+  with_items:
+    - atom
+    - battle-net
+    - cyberduck
+    - docker
+    - firefox
+    - gimp
+    - gitter
+    - google-chrome
+    - hyperswitch
+    - iterm2
+    - java
+    - messenger-for-desktop
+    - slack
+    - spectacle
+    - sqlpro-for-mssql
+    - steermouse
+    - swinsian
+    # missing: Todoist
+    - tunnelblick
+    - virtualbox
+    - wireshark
+    - yakyak

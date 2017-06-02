@@ -1,4 +1,7 @@
 ---
+- include: linux.yml
+  when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
+
 - name: Install command-line tools
   package:
     name: "{{ item }}"
@@ -10,5 +13,4 @@
     - libtool
     - nano
     - scons
-    - valgrind
-  become: true
+  become: "{{ package_become }}"

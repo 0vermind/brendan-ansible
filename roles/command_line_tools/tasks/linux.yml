@@ -1,0 +1,8 @@
+---
+- include: fedora.yml
+  when: ansible_distribution == "Fedora"
+
+- name: Install Linux-specific packages
+  package: name={{ item }}
+  with_items:
+    - valgrind

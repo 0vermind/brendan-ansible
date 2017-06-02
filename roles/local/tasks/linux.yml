@@ -5,6 +5,12 @@
 - include: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
+- name: Install Linux-specific packages
+  package: name={{ item }}
+  with_items:
+    - atom
+    - firefox
+
 - name: Fix antialiasing
   gsetting:
     schema: "{{ item.schema }}"

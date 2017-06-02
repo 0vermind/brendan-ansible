@@ -2,14 +2,15 @@
 - include: linux.yml
   when: ansible_os_family == "RedHat" or ansible_os_family == "Debian"
 
+- include: mac.yml
+  when: ansible_os_family == "Darwin"
+
 - name: Install programs
   package: name={{ item }}
   with_items:
-    - atom
-    - firefox
     - lastpass-cli
     - "{{ 'python2-flake8' if ansible_os_family == 'RedHat' else 'flake8' }}"
-  become: true
+  become: "{{ package_become }}"
 
 - name: Install Atom packages
   apm:
