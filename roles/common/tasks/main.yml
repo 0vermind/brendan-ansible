@@ -7,7 +7,7 @@
     name: blong
     append: yes
     generate_ssh_key: yes
-    groups: wheel
+    groups: "{{ 'wheel' if ansible_os_family == 'RedHat' else 'adm' }}"
     ssh_key_bits: 2048
   become: true
 
