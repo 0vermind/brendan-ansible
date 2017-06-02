@@ -1,5 +1,5 @@
 ---
-- name: install the rpmfusion repo packages
+- name: Install the RPM Fusion repos
   dnf: name={{ item }}
   with_items:
     - http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
@@ -7,7 +7,8 @@
   when: ansible_distribution == "Fedora"
   become: true
 
-- user:
+- name: Setup blong user
+  user:
     name: blong
     append: yes
     generate_ssh_key: yes
@@ -15,6 +16,11 @@
     ssh_key_bits: 2048
   become: true
 
-- known_hosts:
-    name: brendanlong.com
-    key: "{{ lookup('file', 'files/known_hosts/brendanlong.com') }}"
+- name: Setup known_hosts
+  known_hosts:
+    name: "{{ item }}"
+    key: "{{ lookup('file', 'files/known_hosts/' + item) }}"
+  with_items:
+    - bitbucket.org
+    - brendanlong.com
+    - github.com
