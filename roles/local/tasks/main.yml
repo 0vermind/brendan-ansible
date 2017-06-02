@@ -14,7 +14,23 @@
     - flash-plugin
     - lastpass-cli
     - messengerfordesktop
+    - python2-flake8
     - steam
     - thunderbird
     - yakyak
   become: true
+
+- name: Install Atom packages
+  apm:
+    name: "{{ item }}"
+  with_items:
+    - language-ocaml
+    - language-r
+    - language-rust
+    - language-vala-modern
+    - linter-flake8
+    - linter-lintr
+    - linter-rust
+    - ocaml-indent
+    - ocaml-merlin
+    - rustfmt
