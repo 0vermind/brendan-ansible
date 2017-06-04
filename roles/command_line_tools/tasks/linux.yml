@@ -6,3 +6,4 @@
   package: name={{ item }}
   with_items:
     - valgrind
+  become: true

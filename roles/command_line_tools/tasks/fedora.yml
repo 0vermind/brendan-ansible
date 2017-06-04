@@ -3,3 +3,4 @@
   dnf: name={{ item }}
   with_items:
     - "@Development tools"
+  become: true
