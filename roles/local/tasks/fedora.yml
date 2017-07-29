@@ -13,3 +13,7 @@
     - thunderbird
     - xine-lib-extras-freeworld
   become: true
+
+- name: Install opam for OCaml
+  shell: wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
+  become: true

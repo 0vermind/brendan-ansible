@@ -17,6 +17,7 @@
   with_items:
     - gdm3
     - gnome-shell
+    - opam
     - virtualbox-guest-x11
   become: true
 
