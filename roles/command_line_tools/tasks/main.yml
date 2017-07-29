@@ -9,6 +9,7 @@
     - autoconf
     - automake
     - cmake
+    - direnv
     - git
     - libtool
     - nano
