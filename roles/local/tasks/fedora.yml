@@ -12,5 +12,4 @@
     - steam
     - thunderbird
     - xine-lib-extras-freeworld
-    - yakyak
   become: true

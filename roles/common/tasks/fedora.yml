@@ -18,4 +18,7 @@
     - src: https://bintray.com/aluxian/rpm/rpm
       dest: bintray-aluxian-rpm.repo
       note: Messenger for Desktop
+    - src: https://copr.fedorainfracloud.org/coprs/mosquito/atom/repo/fedora-25/mosquito-atom-fedora-25.repo
+      dest: mosquito-atom.repo
+      note: Atom editor
   become: true
