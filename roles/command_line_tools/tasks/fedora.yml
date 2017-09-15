@@ -1,6 +1,6 @@
 ---
-- name: Install Fedora-specific packages
-  dnf: name={{ item }}
-  with_items:
-    - "@Development tools"
+# Can't use the `dnf` rule because of this bug with groups:
+# See: https://github.com/ansible/ansible/issues/26868
+- name: install the 'Development tools' package group
+  shell: "dnf install -y '@Development tools'"
   become: true
