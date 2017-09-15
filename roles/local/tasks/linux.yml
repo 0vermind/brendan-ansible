@@ -5,17 +5,11 @@
 - include: ubuntu.yml
   when: ansible_distribution == "Ubuntu"
 
-- name: Download Nylas mail
-  get_url:
-    url: https://edgehill.nylas.com/download?platform=linux-rpm
-    dest: /tmp/nylas-mail.rpm
-
 - name: Install Linux-specific packages
   package: name={{ item }}
   with_items:
     - atom
     - firefox
-    - /tmp/nylas-mail.rpm
   become: true
 
 - name: Fix antialiasing
