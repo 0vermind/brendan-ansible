@@ -15,3 +15,17 @@
     - nano
     - scons
   become: "{{ package_become }}"
+
+- name: Setup bashrc
+  blockinfile:
+    path: ~/.bashrc
+    block: "{{ lookup('file', 'files/bashrc') }}"
+    create: yes
+    marker: "#{mark} Ansible command_line_tools block"
+
+- name: Setup bash_profile
+  blockinfile:
+    path: ~/.bash_profile
+    block: "{{ lookup('file', 'files/bash_profile') }}"
+    create: yes
+    marker: "#{mark} Ansible command_line_tools block"

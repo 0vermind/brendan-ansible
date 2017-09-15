@@ -1,0 +1,23 @@
+export AWS_PROFILE=staging
+
+export CLIFFORD_SERVER=$(lpass show --field=Hostname "screeningdb read-only")
+export CLIFFORD_PORT=$(lpass show --field=Port "screeningdb read-only")
+export CLIFFORD_DATABASE=$(lpass show --field=Database "screeningdb read-only")
+export CLIFFORD_USERNAME=$(lpass show --user "screeningdb read-only")
+export CLIFFORD_PASSWORD=$(lpass show --password "screeningdb read-only")
+
+# Genisys DB
+export PGUSER=$(lpass show --user "Genisys DB brendan")
+export PGPASSWORD=$(lpass show --password "Genisys DB brendan")
+
+export MSSQL_TEST_PASSWORD=$(lpass show --password "catalyst-dev test user")
+
+export HOMEBREW_GITHUB_API_TOKEN=$(lpass show --notes "Homebrew GitHub API Token")
+
+if [ -f ~/.cargo/env ]; then
+  source ~/.cargo/env
+fi
+
+export PATH=~/miniconda2/bin:"$PATH"
+
+eval `opam config env`

@@ -45,3 +45,10 @@
       value: Brendan Long
     - name: user.email
       value: self@brendanlong.com
+
+- name: Setup bashrc
+  blockinfile:
+    path: ~/.bashrc
+    block: "{{ lookup('file', 'files/bashrc') }}"
+    create: yes
+    marker: "#{mark} Ansible local block"
