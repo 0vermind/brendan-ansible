@@ -8,6 +8,7 @@
 - name: Install programs
   package: name={{ item }}
   with_items:
+    - bash-completion
     - lastpass-cli
     - "{{ 'python2-flake8' if ansible_os_family == 'RedHat' else 'flake8' }}"
   become: "{{ package_become }}"
