@@ -14,7 +14,6 @@
     - iterm2
     - java
     - messenger-for-desktop
-    - opam
     - slack
     - spectacle
     - sqlpro-for-mssql
@@ -25,3 +24,8 @@
     - virtualbox
     - wireshark
     - yakyak
+
+- name: Install Mac specific CLI apps
+  homebrew: name={{ item }}
+  with_items:
+    - opam
