@@ -10,9 +10,10 @@
     - flash-plugin
     - messengerfordesktop
     - steam
-    - thunderbird
     - xine-lib-extras-freeworld
   become: true
+
+# TODO: Install Nylas Mail from https://edgehill.nylas.com/download?platform=linux-rpm
 
 - name: Install opam for OCaml
   shell: wget https://raw.github.com/ocaml/opam/master/shell/opam_installer.sh -O - | sh -s /usr/local/bin
