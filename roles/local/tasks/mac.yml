@@ -29,3 +29,9 @@
   homebrew: name={{ item }}
   with_items:
     - opam
+
+- name: Setup 'brew update' cron job
+  cron:
+    name: Update Homebrew package list
+    job: brew update
+    special_time: daily

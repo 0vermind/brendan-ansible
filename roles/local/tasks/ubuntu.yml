@@ -29,3 +29,10 @@
     - overlay-scrollbar
     #- unity
   become: true
+
+- name: Setup 'apt-get update' cron job
+  cron:
+    name: Update apt-get package list
+    job: apt-get update
+    special_time: daily
+  become: true

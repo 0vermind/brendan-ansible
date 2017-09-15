@@ -28,6 +28,12 @@
     - ocaml-merlin
     - rustfmt
 
+- name: Setup 'opam update' cron job
+  cron:
+    name: Update opam package list
+    job: opam update
+    special_time: daily
+
 - name: Git configuration
   git_config:
     name: "{{ item.name }}"
