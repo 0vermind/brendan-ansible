@@ -26,6 +26,10 @@
     - wireshark
     - yakyak
 
+- name: Install 'brew cu' for upgrading casks
+  homebrew_tap:
+    name: buo/cask-upgrade
+
 - name: Install Mac specific CLI apps
   homebrew: name={{ item }}
   with_items:
@@ -35,4 +39,16 @@
   cron:
     name: Update Homebrew package list
     job: brew update
+    special_time: daily
+
+- name: Setup Homebrew cask upgrade cron job
+  cron:
+    name: Update Homebrew casks
+    job: brew cu -a --cleanup -y
+    special_time: daily
+
+- name: Setup 'brew upgrade' cron job
+  cron:
+    name: Upgrade Homebrew packages
+    job: brew upgrade -y
     special_time: daily
