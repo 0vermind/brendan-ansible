@@ -2,7 +2,6 @@
 - name: Install Mac specific programs
   homebrew_cask: name={{ item }}
   with_items:
-    - atom
     - battle-net
     - cyberduck
     - docker
@@ -23,6 +22,7 @@
     # missing: Todoist
     - tunnelblick
     - virtualbox
+    - visual-studio-code
     - wireshark
     - yakyak
 

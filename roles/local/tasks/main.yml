@@ -13,22 +13,6 @@
     - "{{ 'python2-flake8' if ansible_os_family == 'RedHat' else 'flake8' }}"
   become: "{{ package_become }}"
 
-- name: Install Atom packages
-  apm:
-    name: "{{ item }}"
-  with_items:
-    - language-ocaml
-    - language-r
-    - language-rust
-    - language-vala-modern
-    - linter
-    - linter-flake8
-    - linter-lintr
-    - linter-rust
-    - ocaml-indent
-    - ocaml-merlin
-    - rustfmt
-
 - name: Setup 'opam update' cron job
   cron:
     name: Update opam package list
@@ -52,3 +36,14 @@
     block: "{{ lookup('file', 'files/bashrc') }}"
     create: yes
     marker: "#{mark} Ansible local block"
+
+- name: Install Visual Studio Code extensions
+  shell: "code --install-extension {{ item }}"
+  with_items:
+    - donjayamanne.python
+    - haaaad.ansible
+    - hackwaly.ocaml
+    - EditorConfig.editorconfig
+    - ms-vscode.atom-keybindings
+    - ms-vscode.csharp
+    - sadesyllas.explorer-excluded-files

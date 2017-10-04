@@ -1,8 +1,13 @@
 ---
-- name: Download Nylas mail
+- name: Download some RPM's
   get_url:
-    url: https://edgehill.nylas.com/download?platform=linux-rpm
-    dest: /tmp/nylas-mail.rpm
+    url: "{{ item.url }}"
+    dest: "/tmp/{{ item.name }}.rpm"
+  with_items:
+    - url: https://edgehill.nylas.com/download?platform=linux-rpm
+      name: nylas-mail.rpm
+    - url: https://go.microsoft.com/fwlink/?LinkID=760867
+      name: visual-studio-code
 
 - name: Install Fedora-specific libraries and programs
   dnf:
@@ -17,6 +22,7 @@
     - steam
     - xine-lib-extras-freeworld
     - /tmp/nylas-mail.rpm
+    - /tmp/visual-studio-code.rpm
   become: true
 
 - name: Install opam for OCaml

@@ -8,7 +8,6 @@
 - name: Install Linux-specific packages
   package: name={{ item }}
   with_items:
-    - atom
     - firefox
   become: true
 
