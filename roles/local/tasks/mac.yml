@@ -52,3 +52,8 @@
     name: Upgrade Homebrew packages
     job: brew upgrade -y
     special_time: daily
+
+- name: Set Visual Studio Code settings
+  copy:
+    src: files/vs-code.json
+    dest: "{{ '~/Library/Application Support/Code/User/settings.json' | expanduser }}"
