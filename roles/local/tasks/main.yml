@@ -47,3 +47,8 @@
     - ms-vscode.atom-keybindings
     - ms-vscode.csharp
     - sadesyllas.explorer-excluded-files
+
+- name: Set Visual Studio Code settings
+  copy:
+    src: files/vs-code.json
+    dest: "{{ '~/.config/Code/User/settings.json' | expanduser }}"
