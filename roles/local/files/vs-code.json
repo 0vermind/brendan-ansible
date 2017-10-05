@@ -13,5 +13,6 @@
         "*.mli": "ocaml"
     },
     "ocaml.useOpamToResolve": true,
+    "search.useIgnoreFilesByDefault": true,
     "window.openFoldersInNewWindow": "off"
 }
