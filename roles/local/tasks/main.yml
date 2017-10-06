@@ -19,6 +19,11 @@
     job: opam update
     special_time: daily
 
+- name: Create global ~/.gitignore
+  copy:
+    src: files/gitignore
+    dest: "{{ '~/.gitignore' | expanduser }}"
+
 - name: Git configuration
   git_config:
     name: "{{ item.name }}"
@@ -29,6 +34,8 @@
       value: Brendan Long
     - name: user.email
       value: self@brendanlong.com
+    - name: core.excludesfile
+      value: "{{ '~/.gitignore' | expanduser }}"
 
 - name: Setup bashrc
   blockinfile:
