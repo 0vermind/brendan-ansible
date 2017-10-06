@@ -48,8 +48,8 @@
   shell: "code --install-extension {{ item }}"
   with_items:
     - donjayamanne.python
+    - freebroccolo.reasonml
     - haaaad.ansible
-    - hackwaly.ocaml
     - EditorConfig.editorconfig
     - ms-vscode.atom-keybindings
     - ms-vscode.csharp

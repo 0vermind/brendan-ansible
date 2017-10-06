@@ -1,18 +1,17 @@
 {
-    "atomKeymap.promptV3Features": true,
-    "editor.multiCursorModifier": "ctrlCmd",
-    "editor.formatOnPaste": true,
-    "editor.rulers": [
-        80
-    ],
     "editor.autoClosingBrackets": false,
     "editor.acceptSuggestionOnEnter": "off",
     "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.rulers": [
+        80
+    ],
     "files.associations": {
         "*.ml": "ocaml",
         "*.mli": "ocaml"
     },
-    "ocaml.useOpamToResolve": true,
     "search.useIgnoreFilesByDefault": true,
     "window.openFoldersInNewWindow": "off"
 }
