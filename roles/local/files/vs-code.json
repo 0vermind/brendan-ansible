@@ -8,9 +8,21 @@
     "editor.rulers": [
         80
     ],
-    "files.associations": {
-        "*.ml": "ocaml",
-        "*.mli": "ocaml"
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/_build/**": true,
+        "**/__build/**": true
+    },
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/_build/**": true,
+        "**/__build/**": true,
+        "**/node_modules/**": true
     },
     "search.useIgnoreFilesByDefault": true,
     "window.openFoldersInNewWindow": "off"
