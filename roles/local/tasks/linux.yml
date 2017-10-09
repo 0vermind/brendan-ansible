@@ -35,6 +35,11 @@
   notify:
   - restart pulseaudio
 
+- name: Create VS Code settings folder
+  file:
+    dest: "{{ '~/.config/Code/User/settings.json' | expanduser }}"
+    state: directory
+
 - name: Set Visual Studio Code settings
   copy:
     src: files/vs-code.json
