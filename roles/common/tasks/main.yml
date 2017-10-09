@@ -1,5 +1,5 @@
 ---
-- include: fedora.yml
+- import_tasks: fedora.yml
   when: ansible_distribution == "Fedora"
 
 - name: Setup blong user
