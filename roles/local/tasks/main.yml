@@ -52,5 +52,7 @@
     - haaaad.ansible
     - EditorConfig.editorconfig
     - ms-vscode.atom-keybindings
+    - ms-vscode.cpptools
     - ms-vscode.csharp
     - sadesyllas.explorer-excluded-files
+    - thiagoabreu.vala
