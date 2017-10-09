@@ -14,12 +14,14 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
+        "**/build/**": true,
         "**/_build/**": true,
         "**/__build/**": true
     },
     "files.watcherExclude": {
         "**/.git/objects/**": true,
         "**/.git/subtree-cache/**": true,
+        "**/build/**": true,
         "**/_build/**": true,
         "**/__build/**": true,
         "**/node_modules/**": true
