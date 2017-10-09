@@ -37,7 +37,7 @@
 
 - name: Create VS Code settings folder
   file:
-    dest: "{{ '~/.config/Code/User/settings.json' | expanduser }}"
+    dest: "{{ '~/.config/Code/User' | expanduser }}"
     state: directory
 
 - name: Set Visual Studio Code settings
