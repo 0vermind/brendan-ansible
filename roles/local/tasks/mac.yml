@@ -3,9 +3,9 @@
   homebrew_cask: name={{ item }}
   with_items:
     - battle-net
+    - google-chrome
     - cyberduck
     - docker
-    - firefox
     - gimp
     - gitter
     - google-chrome

@@ -4,8 +4,6 @@
     url: "{{ item.url }}"
     dest: "/tmp/{{ item.name }}.rpm"
   with_items:
-    - url: https://edgehill.nylas.com/download?platform=linux-rpm
-      name: nylas-mail
     - url: https://go.microsoft.com/fwlink/?LinkID=760867
       name: visual-studio-code
 
@@ -21,7 +19,6 @@
     - messengerfordesktop
     - steam
     - xine-lib-extras-freeworld
-    - /tmp/nylas-mail.rpm
     - /tmp/visual-studio-code.rpm
   become: true
 
