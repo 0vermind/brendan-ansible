@@ -28,5 +28,6 @@
     },
     "search.useIgnoreFilesByDefault": true,
     "window.openFoldersInNewWindow": "off",
-    "workbench.startupEditor": "newUntitledFile"
+    "workbench.startupEditor": "newUntitledFile",
+    "python.pythonPath": "python3"
 }
