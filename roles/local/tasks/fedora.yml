@@ -1,16 +1,25 @@
 ---
-- name: Download some RPM's
-  get_url:
-    url: "{{ item.url }}"
-    dest: "/tmp/{{ item.name }}.rpm"
-  with_items:
-    - url: https://go.microsoft.com/fwlink/?LinkID=760867
-      name: visual-studio-code
+- name: Get Microsoft's GPG Key
+  rpm_key:
+    key: https://packages.microsoft.com/keys/microsoft.asc
+  become: true
+
+- name: Setup Visual Studio Code's RPM Repo
+  yum_repository:
+    name: vscode
+    description: Visual Studio Code
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+  become: true
 
 - name: Install Fedora-specific libraries and programs
   dnf:
     name: "{{ item }}"
+    state: latest
   with_items:
+    - code # visual studio code
     - freetype-freeworld
     - gstreamer-ffmpeg
     - gstreamer-plugins-bad
@@ -19,7 +28,6 @@
     - messengerfordesktop
     - steam
     - xine-lib-extras-freeworld
-    - /tmp/visual-studio-code.rpm
   become: true
 
 - name: Install opam for OCaml
