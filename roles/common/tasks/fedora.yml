@@ -18,4 +18,7 @@
     - src: https://bintray.com/aluxian/rpm/rpm
       dest: bintray-aluxian-rpm.repo
       note: Messenger for Desktop
+    - src: https://negativo17.org/repos/fedora-nvidia.repo
+      dest: fedora-nvidia.repo
+      note: nVidia
   become: true
