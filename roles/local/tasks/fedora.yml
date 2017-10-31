@@ -44,6 +44,7 @@
     - python-devel
     - messengerfordesktop
     - redhat-rpm-config
+    - https://downloads.slack-edge.com/linux_releases/slack-2.8.2-0.1.fc21.x86_64.rpm
     - steam
     - xine-lib-extras-freeworld
   become: true
