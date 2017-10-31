@@ -25,7 +25,9 @@
     - gstreamer-plugins-bad
     - gstreamer-plugins-ugly
     - flash-plugin
+    - python-devel
     - messengerfordesktop
+    - redhat-rpm-config
     - steam
     - xine-lib-extras-freeworld
   become: true
