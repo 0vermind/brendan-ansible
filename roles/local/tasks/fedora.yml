@@ -14,6 +14,21 @@
     gpgkey: https://packages.microsoft.com/keys/microsoft.asc
   become: true
 
+- name: Get Google's GPG Key
+  rpm_key:
+    key: http://dl-ssl.google.com/linux/linux_signing_key.pub
+  become: true
+
+- name: Setup Google Chrome's RPM Repo
+  yum_repository:
+    name: google-chrome
+    description: Google Chrome
+    baseurl: http://dl.google.com/linux/chrome/rpm/stable/x86_64
+    enabled: yes
+    gpgcheck: yes
+    gpgkey: http://dl-ssl.google.com/linux/linux_signing_key.pub
+  become: true
+
 - name: Install Fedora-specific libraries and programs
   dnf:
     name: "{{ item }}"
@@ -21,6 +36,7 @@
   with_items:
     - code # visual studio code
     - freetype-freeworld
+    - google-chrome-stable
     - gstreamer-ffmpeg
     - gstreamer-plugins-bad
     - gstreamer-plugins-ugly
