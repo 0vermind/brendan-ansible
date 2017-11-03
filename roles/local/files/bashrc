@@ -1,6 +1,7 @@
 export AWS_PROFILE=staging
 
-if [ -n "$PS1" ]; then
+case "$-" in
+*i*)
     export CLIFFORD_SERVER=$(lpass show --field=Hostname "screeningdb read-only")
     export CLIFFORD_PORT=$(lpass show --field=Port "screeningdb read-only")
     export CLIFFORD_DATABASE=$(lpass show --field=Database "screeningdb read-only")
@@ -14,7 +15,7 @@ if [ -n "$PS1" ]; then
     export MSSQL_TEST_PASSWORD=$(lpass show --password "catalyst-dev test user")
 
     export HOMEBREW_GITHUB_API_TOKEN=$(lpass show --notes "Homebrew GitHub API Token")
-fi
+esac
 
 if [ -f ~/.cargo/env ]; then
   source ~/.cargo/env
