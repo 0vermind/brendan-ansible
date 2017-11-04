@@ -1,9 +1,4 @@
 ---
-- name: Get Microsoft's GPG Key
-  rpm_key:
-    key: https://packages.microsoft.com/keys/microsoft.asc
-  become: true
-
 - name: Setup Visual Studio Code's RPM Repo
   yum_repository:
     name: vscode
