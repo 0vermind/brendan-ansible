@@ -49,10 +49,10 @@
 - name: Install Visual Studio Code extensions
   shell: "code --install-extension {{ item }}"
   with_items:
-    - donjayamanne.python
     - freebroccolo.reasonml
     - haaaad.ansible
     - EditorConfig.editorconfig
+    - ms-python.python
     - ms-vscode.atom-keybindings
     - ms-vscode.cpptools
     - ms-vscode.csharp
