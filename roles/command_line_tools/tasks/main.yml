@@ -29,3 +29,23 @@
     block: "{{ lookup('file', 'files/bash_profile') }}"
     create: yes
     marker: "#{mark} Ansible command_line_tools block"
+
+- name: Create global ~/.gitignore
+  copy:
+    src: files/gitignore
+    dest: "{{ '~/.gitignore' | expanduser }}"
+
+- name: Git configuration
+  git_config:
+    name: "{{ item.name }}"
+    value: "{{ item.value }}"
+    scope: global
+  with_items:
+    - name: user.name
+      value: Brendan Long
+    - name: user.email
+      value: self@brendanlong.com
+    - name: core.excludesfile
+      value: "{{ '~/.gitignore' | expanduser }}"
+    - name: branch.autosetuprebase
+      value: always
