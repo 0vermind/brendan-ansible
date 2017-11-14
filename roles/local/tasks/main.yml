@@ -36,6 +36,8 @@
       value: self@brendanlong.com
     - name: core.excludesfile
       value: "{{ '~/.gitignore' | expanduser }}"
+    - name: branch.autosetuprebase
+      value: always
 
 - name: Setup bashrc
   blockinfile:
