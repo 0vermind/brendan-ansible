@@ -31,6 +31,7 @@
   with_items:
     - code # visual studio code
     - freetype-freeworld
+    - golang
     - google-chrome-stable
     - gstreamer-ffmpeg
     - gstreamer-plugins-bad

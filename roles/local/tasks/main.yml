@@ -32,6 +32,7 @@
     - freebroccolo.reasonml
     - haaaad.ansible
     - EditorConfig.editorconfig
+    - lukehoban.go
     - ms-python.python
     - ms-vscode.atom-keybindings
     - ms-vscode.cpptools
