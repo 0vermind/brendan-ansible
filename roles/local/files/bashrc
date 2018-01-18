@@ -2,11 +2,11 @@ export AWS_PROFILE=staging
 
 case "$-" in
 *i*)
-    export CLIFFORD_SERVER=$(lpass show --field=Hostname "screeningdb read-only")
-    export CLIFFORD_PORT=$(lpass show --field=Port "screeningdb read-only")
-    export CLIFFORD_DATABASE=$(lpass show --field=Database "screeningdb read-only")
-    export CLIFFORD_USERNAME=$(lpass show --user "screeningdb read-only")
-    export CLIFFORD_PASSWORD=$(lpass show --password "screeningdb read-only")
+    export CLIFFORD_SERVER=$(lpass show --field=Hostname 6097853213843334805)
+    export CLIFFORD_PORT=$(lpass show --field=Port 6097853213843334805)
+    export CLIFFORD_DATABASE=$(lpass show --field=Database 6097853213843334805)
+    export CLIFFORD_USERNAME=$(lpass show --user 6097853213843334805)
+    export CLIFFORD_PASSWORD=$(lpass show --password 6097853213843334805)
 
     # Genisys DB
     export PGUSER=$(lpass show --user "Genisys DB brendan")
